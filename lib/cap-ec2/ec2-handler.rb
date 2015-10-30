@@ -81,7 +81,7 @@ module CapEC2
     private
 
     def ec2_instances(ec2)
-      ec2.instances if project_tag.nil?
+      return ec2.instances if project_tag.nil?
       ec2.instances.filter(tag(project_tag), "*#{application}*")
     end
 
